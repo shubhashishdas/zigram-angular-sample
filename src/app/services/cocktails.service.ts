@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -9,19 +11,32 @@ export class CocktailsService {
 
   constructor(private http: HttpClient) { }
 
-  getCategoryList() {
-    return this.http.get(`${this.apiUrl}` + `list.php?c=list`);
+  handleError(error: HttpErrorResponse) {
+    let errorMessage = 'Unknown error!';
+    if (error.error instanceof ErrorEvent) {
+      // Client-side errors
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      // Server-side errors
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    window.alert(errorMessage);
+    return throwError(errorMessage);
   }
 
-  getIngredientList() {
-    return this.http.get(`${this.apiUrl}` + `list.php?i=list`);
+  getCategoryList(): Observable<any> {
+    return this.http.get(`${this.apiUrl}` + `list.php?c=list`).pipe(catchError(this.handleError));;
   }
 
-  filterByCategory(category: string) {
-    return this.http.get(`${this.apiUrl}` + `filter.php?c=${category}`);
+  getIngredientList(): Observable<any> {
+    return this.http.get(`${this.apiUrl}` + `list.php?i=list`).pipe(catchError(this.handleError));;
   }
 
-  filterByIngredients(category: string) {
-    return this.http.get(`${this.apiUrl}` + `filter.php?i=${category}`);
+  filterByCategory(category: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}` + `filter.php?c=${category}`).pipe(catchError(this.handleError));;
+  }
+
+  filterByIngredients(category: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}` + `filter.php?i=${category}`).pipe(catchError(this.handleError));;
   }
 }

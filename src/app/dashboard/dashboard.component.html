@@ -3,12 +3,10 @@
         <div class="col-3 left-container">
             <div [ngClass]="{'active' : (tab === 1)}" class="col-6 d-inline-block tab text-center"
                 (click)="tab = 1; items = []; masterDataItems = []">
-                Filter By
                 Category
             </div>
             <div [ngClass]="{'active' : (tab === 2)}" class="col-6 d-inline-block tab text-center"
                 (click)="tab = 2; items = []; masterDataItems = []">
-                Filter By
                 Ingredient</div>
             <div class="d-flex p-2">
                 <input class="form-control" placeholder="Search By Name..." (keyup)="searchByKeywords($event)" />
@@ -41,7 +39,7 @@
             <ng-template #showData>
                 <ng-container *ngIf="items.length == 0; else dataFound">
                     <div class="text-center no-data">
-                        Enhance your filter criteria
+                        Enhance your filter criteria...
                     </div>
                 </ng-container>
                 <ng-template #dataFound>

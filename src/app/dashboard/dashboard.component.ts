@@ -7,6 +7,7 @@ import { CocktailsService } from '../services/cocktails.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  title = 'Cocktail Shop';
   categoryList: any;
   ingredientList: any;
   masterDataItems: any;
