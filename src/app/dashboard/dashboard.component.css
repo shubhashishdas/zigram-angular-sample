@@ -1,0 +1,53 @@
+.dashboard-container {
+    height: auto;
+    background-color: white;
+}
+.row {
+    margin: 0px;
+}
+.left-container {
+    height: auto;
+    padding: 0px;
+}
+.right-container {
+    height: auto;
+    border-left: 1px solid;
+}
+.tab {
+    background-color: #ececec;
+    color: black;
+    cursor: pointer;
+}
+.tab.active {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+.card {
+    border-radius: 0 !important;
+}
+.card-body {
+    width: 190px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 700;
+}
+.loader {
+    position:absolute;
+  top:0px;
+  right:0px;
+  width:100%;
+  height:100%;
+  background-image:url('/assets/loader.gif');
+  background-repeat:no-repeat;
+  background-position:center;
+  z-index:10000000;
+  opacity: 0.4;
+  filter: alpha(opacity=40); /* For IE8 and earlier */
+}
+.no-data {
+    font-size: 23px;
+    padding: 30px;
+
+}
