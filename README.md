@@ -71,7 +71,7 @@ npm start</pre>
         </h4>
         <p>These are the most useful commands defined in <code>package.json</code>:</p>
         <ul>
-            <li><code>npm start</code> - Run the angular application in development mode. Projects run on port 4200</li>
+            <li><code>npm start</code> - Run the angular application in development mode. Project run on port 4200</li>
         </ul>
         <p>These are the test-related scripts:</p>
         <ul>
